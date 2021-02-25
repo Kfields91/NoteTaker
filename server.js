@@ -3,7 +3,7 @@ var app = express();
 var NotesObj = require("./develop/db/db.json");
 var path = require("path");
 
-var PORT = process.env.PORT || 8080;
+var PORT = process.env.PORT || 3001;
 
 app.use(express.static("public"));
 
