@@ -9,7 +9,7 @@ module.exports = function (app) {
     return res.json(notesObj);
   });
 
-  app.post("../db/db.json", function (req, res) {
+  app.post("/api/notes", function (req, res) {
     const currentCB = notesObj;
 
     const newestNote = {
@@ -33,7 +33,7 @@ module.exports = function (app) {
 
     currentCB.splice(deleteNote, 1);
 
-    fs.writeFile("app/db/db.json", JSON.stringify(currentCB), function () {
+    fs.writeFile("../db/db.json", JSON.stringify(currentCB), function () {
       res.json(currentCB);
     });
   });
