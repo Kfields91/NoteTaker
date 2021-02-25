@@ -1,39 +1,40 @@
-const notesData = require("../db/db.json");
+const notesObj = require("../db/db.json");
 const fs = require("fs");
+const path = require("path");
+const ID = require("nanoid").nanoid;
 
+module.exports = function (app) {
+  app.get("/api/notes", (req, res) => {
+    console.log(notesObj);
+    return res.json(notesObj);
+  });
 
-module.exports = function(app) {
+  app.post("/api/notes", function (req, res) {
+    const currentCB = notesObj;
 
-app.get(`/api/notes`, function(req, res){
-    // Reads db.json file
-    fs.readFile("../db/db.json", (err, data) => {
-        if(err) throw err;
-        // parses string into object
-        JSON.parse(data);
-        // assigns variable to object
-        const newObject = data;
-        // gets new response and json 
-        res.json(newObject);
-        res.send(newObject);
-    })
-    console.log(`My db.JSON=` + notesData + `and` + `parsed=` + newObject);
+    const newestNote = {
+      id: ID(),
+      ...req.body,
+    };
+    console.log(newestNote);
 
-});
+    currentCB.push(newestNote);
+    fs.writeFile("develop/db/db.json", JSON.stringify(currentCB), function () {
+      res.json(currentCB);
+    });
+  });
 
-app.post(`/api/notes`, function(req, res){
-    const newNote = req.body;
-    notesData.push(newNote);
-    res.send(newNote);
-    
-});
-   
+  app.delete("/api/notes/:id", (req, res) => {
+    const currentCB = notesObj;
 
-// app.get(`/api/notes/:id`, function(req, res){
-//     res.json(notesData);
-//     // Need a way to delete id to delete note
-//     // if(notesData[i].title === req.body){
-//     //     notesData
-//     // }
-// })
+    const deleteNote = currentCB.findIndex(
+      (element) => element.id === req.params.id
+    );
 
-}
+    currentCB.splice(deleteNote, 1);
+
+    fs.writeFile("app/db/db.json", JSON.stringify(currentCB), function () {
+      res.json(currentCB);
+    });
+  });
+};
