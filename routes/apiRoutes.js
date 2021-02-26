@@ -7,7 +7,7 @@ const router = express.Router();
 
 router.get("/", (req, res) => {
   console.log(notesObj);
-  return res.json(notesObj);
+  res.json(notesObj);
 });
 
 router.post("", function (req, res) {
