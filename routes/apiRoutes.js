@@ -1,6 +1,6 @@
 const notesObj = require("../db/db.json");
 const fs = require("fs");
-const path = require("path");
+// const path = require("path");
 const ID = require("nanoid").nanoid;
 const express = require("express");
 const router = express.Router();
@@ -21,7 +21,7 @@ router.post("/", function (req, res) {
 
   currentCB.push(newestNote);
   fs.writeFile("../db/db.json", JSON.stringify(currentCB), function () {
-    res.json(currentCB);
+    res.send(currentCB);
   });
 });
 
