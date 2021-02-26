@@ -10,7 +10,7 @@ router.get("/", (req, res) => {
   return res.json(notesObj);
 });
 
-router.post("/", function (req, res) {
+router.post("", function (req, res) {
   const currentCB = notesObj;
   console.log("json file", notesObj);
   const newestNote = {
@@ -21,7 +21,7 @@ router.post("/", function (req, res) {
 
   currentCB.push(newestNote);
   fs.writeFile("../db/db.json", JSON.stringify(currentCB), function () {
-    res.send(currentCB);
+    res.json(currentCB);
   });
 });
 
