@@ -10,7 +10,7 @@ router.get("/", (req, res) => {
   res.json(notesObj);
 });
 
-router.post("", function (req, res) {
+router.post("/", function (req, res) {
   const currentCB = notesObj;
   console.log("json file", notesObj);
   const newestNote = {
