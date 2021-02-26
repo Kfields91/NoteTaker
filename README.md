@@ -1,4 +1,5 @@
 # NoteTaker
+
 ---
 
 <a href="https://img.shields.io/badge/License-MIT-brightgreen"><img src="https://img.shields.io/badge/License-MIT-brightgreen"></a>
@@ -10,10 +11,11 @@
 - [Installation](#installation)
 - [Usage](#usage)
 - [Contribution](#contribution)
-- [Test Instructions](#test-instructions)
 - [Contact Information](#contact-information)
 
 ### Description
+
+![NoteTaker](https://user-images.githubusercontent.com/68616301/109265499-7fb39f80-77bb-11eb-960f-065a171236b6.gif)
 
 The NoteTaker App creates and stores user's notes. The user simply writes a title and the notes and hits the save icon. The note will then render on the notes page. Notes can be deleted at anytime.
 
@@ -37,17 +39,14 @@ SO THAT I can organize my thoughts and keep track of tasks I need to complete
 
 ### Usage
 
-Visit the live app at [NoteTaker]()
+Visit the live app at [NoteTaker](https://frozen-woodland-57127.herokuapp.com/)
 
 ### Contribution
 
-contact me
-
-### Test-Instructions
-
-run the code
+If you would like to contribute to this project reach out. Contact Information can be found below in Contact Information.
 
 ### Contact-Information
 
 [Github Profile](https://github.com/Kfields91)
-kelsea.fields@yahoo.com
+[Github Repo](https://github.com/Kfields91/NoteTaker)
+[LinkedIn](https://www.linkedin.com/in/kelsea-fields/)
