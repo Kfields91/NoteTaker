@@ -1,13 +1,12 @@
 var express = require("express");
-var app = express();
 // var NotesObj = require("./develop/db/db.json");
-var path = require("path");
-
+var app = express();
 var PORT = process.env.PORT || 8080;
+// var path = require("path");
 
-app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(express.static("public"));
 
 app.use("/api/notes", require("./routes/apiRoutes"));
 app.use("/", require("./routes/htmlRoutes"));
